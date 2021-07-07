@@ -43,11 +43,13 @@ public class UserServiceImpl implements UserService{
     public String createUser(User user) {
         String randomString = RandomStringGenerator.generateAlphaNumeric(20);
         user.setApikey(randomString);
+/*
         Authority authority = new Authority();
         authority.setAuthority("ROLE_USER");
         Set<Authority> authorities = new HashSet<>();
         authorities.add(authority);
         user.setAuthorities(authorities);
+*/
 
         User newUser = userRepository.save(user);
         return newUser.getUsername();
